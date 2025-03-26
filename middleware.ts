@@ -21,6 +21,8 @@ const securityHeaders = {
 const allowedOrigins = [
   "https://api.calendarix.pro",
   "http://api.calendarix.pro",
+  "https://calendarix.pro",
+  "http://calendarix.pro",
   "http://localhost:3000",
   "http://127.0.0.1:3000",
 ];
