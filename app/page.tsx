@@ -22,18 +22,27 @@ export default function LandingPage() {
   useEffect(() => {
     const fetchRequestCount = async () => {
       try {
-        // Replace with your actual API endpoint for getting the count
-        const response = await fetch("YOUR_COUNT_API_ENDPOINT");
+        const response = await fetch(
+          "https://api.calendarix.pro/v1/subscribe/count",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch request count");
+          throw new Error(`Failed to fetch request count: ${response.status}`);
         }
 
         const data = await response.json();
-        // Assuming your API returns an object with a count property
-        setRequestCount(data.count);
+        console.log("Request count data:", data);
+        setRequestCount(data.subscribed_count);
       } catch (error) {
         console.error("Error fetching request count:", error);
+        // Set a default count or leave as null
+        setRequestCount(0);
       } finally {
         setIsLoadingCount(false);
       }
@@ -62,34 +71,40 @@ export default function LandingPage() {
     setIsSubmitting(true);
 
     try {
-      // Replace 'YOUR_API_ENDPOINT_URL' with your actual API endpoint
-      const response = await fetch("YOUR_API_ENDPOINT_URL", {
+      const response = await fetch("https://api.calendarix.pro/v1/subscribe/", {
         method: "POST",
+        redirect: "manual",
         headers: {
           "Content-Type": "application/json",
-          // Add any additional headers your API requires
-          // 'Authorization': 'Bearer YOUR_API_KEY',
         },
         body: JSON.stringify({
           email: email,
-          userRequest: "early access request",
+          requestdata: { data: "early access request" },
         }),
       });
 
+      // Check if response is successful
       if (!response.ok) {
-        const errorData = await response.json().catch(() => null);
-        console.error("API error:", errorData);
-        throw new Error("Failed to submit");
+        console.error("API error status:", response.status);
+        throw new Error(`Failed to submit: ${response.statusText}`);
       }
 
-      const data = await response.json();
-      console.log("API response:", data);
+      try {
+        const data = await response.json();
+        console.log("API response:", data);
 
-      // Update request count if the API returns an updated count
-      if (data.count !== undefined) {
-        setRequestCount(data.count);
-      } else {
-        // If the API doesn't return a count, increment the local count
+        // Update request count if the API returns an updated count
+        if (data.count !== undefined) {
+          setRequestCount(data.count);
+        } else {
+          // If the API doesn't return a count, increment the local count
+          setRequestCount((prevCount) =>
+            prevCount !== null ? prevCount + 1 : 1
+          );
+        }
+      } catch (jsonError) {
+        console.warn("Could not parse JSON response:", jsonError);
+        // Still consider the submission successful if the response was ok
         setRequestCount((prevCount) =>
           prevCount !== null ? prevCount + 1 : 1
         );
