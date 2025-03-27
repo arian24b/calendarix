@@ -124,8 +124,8 @@ export default function LandingPage() {
     } catch (error) {
       console.error("Submission error:", error);
       toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
+        title: "Your request already exists",
+        description: "Please check your email or try again later.",
         variant: "destructive",
       });
     } finally {
