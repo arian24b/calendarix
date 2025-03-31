@@ -15,10 +15,12 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableSystem
       disableTransitionOnChange
     >
-      {children}
+      <div className="flex flex-col h-screen">
+        {children}
+        <Footer />
+      </div>
       <BackToTop />
       <Toaster />
-      <Footer />
     </ThemeProvider>
   );
 }
