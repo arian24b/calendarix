@@ -62,36 +62,36 @@ function getStaticRoutes() {
 }
 
 // Function to get blog posts
-function getBlogPosts() {
-  const blogPosts: string[] = [];
-  const contentDirectory = path.join(process.cwd(), "public/posts");
+// function getBlogPosts() {
+//   const blogPosts: string[] = [];
+//   const contentDirectory = path.join(process.cwd(), "public/posts");
 
-  try {
-    const files = readdirSync(contentDirectory, { withFileTypes: true });
+//   try {
+//     const files = readdirSync(contentDirectory, { withFileTypes: true });
 
-    for (const file of files) {
-      if (
-        !file.isDirectory() &&
-        (file.name.endsWith(".md") || file.name.endsWith(".mdx"))
-      ) {
-        // Get slug from filename (remove extension)
-        const slug = file.name.replace(/\.(md|mdx)$/, "");
-        blogPosts.push(`/blog/${slug}`);
-      }
-    }
-  } catch (error) {
-    console.error("Error reading blog posts:", error);
-  }
+//     for (const file of files) {
+//       if (
+//         !file.isDirectory() &&
+//         (file.name.endsWith(".md") || file.name.endsWith(".mdx"))
+//       ) {
+//         // Get slug from filename (remove extension)
+//         const slug = file.name.replace(/\.(md|mdx)$/, "");
+//         blogPosts.push(`/blog/${slug}`);
+//       }
+//     }
+//   } catch (error) {
+//     console.error("Error reading blog posts:", error);
+//   }
 
-  return blogPosts;
-}
+//   return blogPosts;
+// }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Get static routes
   const staticRoutes = getStaticRoutes();
 
   // Get blog posts
-  const blogPosts = getBlogPosts();
+  // const blogPosts = getBlogPosts();
 
   // Combine routes
   const allRoutes = [...staticRoutes, ...blogPosts];

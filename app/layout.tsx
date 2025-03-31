@@ -1,16 +1,55 @@
 import type React from "react";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { Providers } from "@/app/providers";
+import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
-import { Toaster } from "@/components/ui/toaster";
-
-const inter = Inter({ subsets: ["latin"] });
+import config from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Calendarix - AI-Powered Calendar",
-  description:
-    "Get personalized schedules, from daily tasks to monthly goals, all in one place.",
-  generator: "v0.dev",
+  title: config.site.name,
+  description: config.site.description,
+  keywords: [
+    "طراحی سایت",
+    "بهینه سازی سایت",
+    "توسعه نرم افزار",
+    "SEO",
+    "DevOps",
+    "Programing",
+    "برنامه نویسی",
+    "web design",
+    "website optimization",
+    "software development",
+    "SEO",
+    "DevOps",
+    "Programing",
+    "برنامه نویسی",
+  ],
+  authors: [{ name: "Arian", url: config.site.url }],
+  openGraph: {
+    title: config.seo.defaultTitle,
+    description: config.seo.defaultDescription,
+    url: config.site.url,
+    siteName: config.site.name,
+    images: config.seo.openGraph.images,
+    locale: config.site.defaultLocale,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: config.seo.defaultTitle,
+    description: config.seo.defaultDescription,
+    images: `${config.site.url}/og-image.jpg`,
+    creator: config.seo.twitter.handle,
+  },
+  robots: "index, follow",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -19,10 +58,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-        <Toaster />
+    <html
+      lang="en"
+      dir="ltr"
+      suppressHydrationWarning
+      className="scroll-smooth"
+    >
+      <body className={cn("min-h-screen bg-background Inter antialiased ltr")}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

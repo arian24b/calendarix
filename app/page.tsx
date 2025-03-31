@@ -2,23 +2,20 @@
 
 import type React from "react";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Twitter, Instagram, Linkedin } from "lucide-react";
+
 import { useToast } from "@/hooks/use-toast";
 
 export default function LandingPage() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  // Add state for request number
   const [requestCount, setRequestCount] = useState<number | null>(null);
   const [isLoadingCount, setIsLoadingCount] = useState(true);
   const { toast } = useToast();
 
-  // Fetch the request count when the component mounts
   useEffect(() => {
     const fetchRequestCount = async () => {
       try {
@@ -58,7 +55,6 @@ export default function LandingPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic email validation
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
       toast({
         title: "Invalid email",
@@ -133,7 +129,6 @@ export default function LandingPage() {
     }
   };
 
-  // Function to render the request count
   const renderRequestCount = () => {
     if (isLoadingCount) {
       return (
@@ -156,22 +151,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#f4e5c6]">
-      <header className="w-full py-4">
-        <div className="container flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Image src="/logo.png" alt="" height={50} width={50} />
-            <span className="text-2xl font-medium text-[#48546d]">
-              Calendarix
-            </span>
-          </div>
-
-          <Button className="bg-[#414ba4] hover:bg-[#414ba4]/90 text-white">
-            GET EARLY ACCESS
-          </Button>
-        </div>
-      </header>
-
+    <div className="flex min-h-screen flex-col ">
       <main className="flex-1">
         <section className="w-full py-16 md:py-24">
           <div className="container px-4 md:px-6 text-center">
@@ -277,38 +257,6 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-
-      <footer className="w-full py-8 bg-[#f4e5c6]">
-        <div className="container px-4 md:px-6">
-          <div className="flex justify-center space-x-4 mb-6">
-            <Link
-              href="#"
-              className="h-10 w-10 rounded-full border border-[#8f9bb3] flex items-center justify-center text-[#8f9bb3] hover:text-[#414ba4] hover:border-[#414ba4]"
-            >
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Link>
-            <Link
-              href="#"
-              className="h-10 w-10 rounded-full border border-[#8f9bb3] flex items-center justify-center text-[#8f9bb3] hover:text-[#414ba4] hover:border-[#414ba4]"
-            >
-              <Instagram className="h-5 w-5" />
-              <span className="sr-only">Instagram</span>
-            </Link>
-            <Link
-              href="#"
-              className="h-10 w-10 rounded-full border border-[#8f9bb3] flex items-center justify-center text-[#8f9bb3] hover:text-[#414ba4] hover:border-[#414ba4]"
-            >
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Link>
-          </div>
-
-          <div className="text-center text-[#8f9bb3] text-sm">
-            © 2025 Copyright: Calendarix.pro
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
