@@ -138,6 +138,7 @@ export async function middleware(request: NextRequest) {
     const latency = Date.now() - start;
     if (response) {
       response.headers.set("X-Response-Time", `${latency}ms`);
+
       logger.info(`Response: ${response.status} ${request.url}`, {
         latency,
         status: response.status,
@@ -151,6 +152,7 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/((?!_next/static|_next/image|favicon.ico|api/healthcheck).*)",
+    "/:path*",
     "/api/:path*",
   ],
 };
