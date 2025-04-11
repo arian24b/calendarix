@@ -111,7 +111,7 @@ export default function LandingPage() {
     if (requestCount !== null) {
       return (
         <div className="text-sm text-[#48546d] mt-2 flex items-center justify-center gap-1">
-          <CheckCircle className="size-3 text-[#414ba4]" />
+          <CheckCircle className="size-3 text-[#414BA4]" />
           <span>
             <span className="font-medium">{requestCount.toLocaleString()}</span>{" "}
             people have already requested early access
@@ -152,7 +152,7 @@ export default function LandingPage() {
     const baseClass = "h-12 shadow-sm transition-all duration-300";
 
     if (isEmailValid === null) {
-      return `${baseClass} border-[#d7dfee]`;
+      return `${baseClass} border-[#ADB1D5]`;
     } else if (isEmailValid) {
       return `${baseClass} border-green-500 focus-visible:ring-green-500`;
     } else {
@@ -164,7 +164,7 @@ export default function LandingPage() {
   const buttonVariants = {
     idle: {
       scale: 1,
-      backgroundColor: "rgb(65, 75, 164)", // #414ba4
+      backgroundColor: "rgb(65, 75, 164)", // #414BA4
     },
     hover: {
       scale: 1.02,
@@ -200,29 +200,29 @@ export default function LandingPage() {
   return (
     <>
       {/* Minimal Header */}
-      <header className="container py-4 border-b border-[#d7dfee]/30">
+      <header className="container py-4 border-b border-[#ADB1D5]/30">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <CalendarClock className="text-[#414ba4] size-5" />
-            <span className="font-medium text-[#414ba4]">CalendarIX</span>
+            <CalendarClock className="text-[#414BA4] size-5" />
+            <span className="font-medium text-[#414BA4]">CalendarIX</span>
           </Link>
 
           <nav className="hidden md:flex gap-6">
             <Link
               href="#features"
-              className="text-sm text-[#48546d] hover:text-[#414ba4] transition-colors"
+              className="text-sm text-[#48546d] hover:text-[#414BA4] transition-colors"
             >
               Features
             </Link>
             <Link
               href="#about"
-              className="text-sm text-[#48546d] hover:text-[#414ba4] transition-colors"
+              className="text-sm text-[#48546d] hover:text-[#414BA4] transition-colors"
             >
               About
             </Link>
             <Link
               href="#contact"
-              className="text-sm text-[#48546d] hover:text-[#414ba4] transition-colors"
+              className="text-sm text-[#48546d] hover:text-[#414BA4] transition-colors"
             >
               Contact
             </Link>
@@ -242,32 +242,32 @@ export default function LandingPage() {
           >
             <motion.span
               variants={item}
-              className="text-[#d7dfee] inline-block"
+              className="text-[#ADB1D5] inline-block"
             >
-              The AI-Powered{" "}
+              The AI-Powered{""}
             </motion.span>
             <motion.span
               variants={item}
-              className="text-[#414ba4] inline-block"
+              className="text-[#414BA4] inline-block"
             >
-              Calendar
+               Calendar
             </motion.span>
             <br />
             <motion.span
               variants={item}
-              className="text-[#d7dfee] inline-block"
+              className="text-[#ADB1D5] inline-block"
             >
               That{" "}
             </motion.span>
             <motion.span
               variants={item}
-              className="text-[#414ba4] inline-block"
+              className="text-[#414BA4] inline-block"
             >
               Transforms
             </motion.span>
             <motion.span
               variants={item}
-              className="text-[#d7dfee] inline-block"
+              className="text-[#ADB1D5] inline-block"
             >
               {" "}
               Your Life
@@ -289,7 +289,7 @@ export default function LandingPage() {
             {isSubmitted ? (
               <motion.div
                 key="success"
-                className="bg-white/80 rounded-lg p-4 text-center w-full max-w-md mx-auto shadow-sm border border-[#d7dfee]/30"
+                className="bg-white/80 rounded-lg p-4 text-center w-full max-w-md mx-auto shadow-sm border border-[#ADB1D5]/30"
                 initial={{ opacity: 0, scale: 0.9, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: -10 }}
@@ -299,7 +299,7 @@ export default function LandingPage() {
                   damping: 20,
                 }}
               >
-                <div className="text-[#414ba4] font-bold text-xl mb-2 flex items-center justify-center gap-2">
+                <div className="text-[#414BA4] font-bold text-xl mb-2 flex items-center justify-center gap-2">
                   <motion.div
                     initial={{ scale: 0, rotate: -90 }}
                     animate={{ scale: 1, rotate: 0 }}
@@ -352,7 +352,7 @@ export default function LandingPage() {
                     />
                     <motion.button
                       type="submit"
-                      className="h-12 px-6 whitespace-nowrap text-white font-medium rounded-l-none flex items-center justify-center gap-2 overflow-hidden"
+                      className="h-12 px-8 whitespace-nowrap text-white font-medium rounded-l-none flex items-center justify-center gap-2 overflow-hidden"
                       disabled={isSubmitting}
                       variants={buttonVariants}
                       initial="idle"
@@ -423,10 +423,10 @@ export default function LandingPage() {
           <div className="md:col-span-1">
             <div className="text-center">
               <h2 className="text-xl md:text-2xl font-bold mb-3">
-                <span className="text-[#d7dfee]">The </span>
-                <span className="text-[#414ba4]">Smartest</span>
-                <span className="text-[#d7dfee]"> Way to </span>
-                <span className="text-[#414ba4]">Organize</span>
+                <span className="text-[#ADB1D5]">The </span>
+                <span className="text-[#414BA4]">Smartest</span>
+                <span className="text-[#ADB1D5]"> Way to </span>
+                <span className="text-[#414BA4]">Organize</span>
               </h2>
 
               <p className="text-[#48546d] text-sm">
