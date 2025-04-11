@@ -9,7 +9,7 @@ export const apiClient = {
   getRequestCount: async (): Promise<number> => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/v1/subscribe/count`,
+        "https://api.calendarix.pro/v1/subscribe/count",
         {
           method: "GET",
           headers: {
@@ -37,7 +37,7 @@ export const apiClient = {
    */
   subscribeForEarlyAccess: async (email: string) => {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/v1/subscribe/`,
+      "https://api.calendarix.pro/v1/subscribe/",
       {
         method: "POST",
         redirect: "manual",
