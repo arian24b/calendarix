@@ -18,7 +18,7 @@ export const siteConfig = {
   logo: "/logo.png",
   favicon: "/logo.png",
   placeholderImage:
-    "https://dl.devdon.ir/images/placeholder.svg?height=400&width=800",
+    "/images/placeholder.svg?height=400&width=800",
   defaultLocale: "en",
   supportedLocales: ["en"],
 };

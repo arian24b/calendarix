@@ -94,7 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // const blogPosts = getBlogPosts();
 
   // Combine routes
-  const allRoutes = [...staticRoutes, ...blogPosts];
+  const allRoutes = [...staticRoutes]; //, ...blogPosts
 
   // Generate sitemap entries
   const sitemap = allRoutes.map((route) => {
