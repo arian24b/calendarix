@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { apiClient } from "@/lib/api";
-import { CheckCircle, Clock, CalendarClock, ArrowRight } from "lucide-react";
+import { CheckCircle, Clock, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -203,7 +203,7 @@ export default function LandingPage() {
       <header className="container py-4 border-b border-[#ADB1D5]/30">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <CalendarClock className="text-[#414BA4] size-5" />
+            <Image src="/logo.png" width={60} height={60} alt="CalendarIX Logo" className="size-5" />
             <span className="font-medium text-[#414BA4]">CalendarIX</span>
           </Link>
 
@@ -225,6 +225,12 @@ export default function LandingPage() {
               className="text-sm text-[#48546d] hover:text-[#414BA4] transition-colors"
             >
               Contact
+            </Link>
+            <Link
+              href="/policy"
+              className="text-sm text-[#48546d] hover:text-[#414BA4] transition-colors"
+            >
+              Privacy Policy
             </Link>
           </nav>
         </div>
