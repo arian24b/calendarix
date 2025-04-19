@@ -8,24 +8,28 @@ import config from "@/lib/config";
 export const metadata: Metadata = {
   title: config.site.name,
   description: config.site.description,
-  keywords : [
-    "CalendarIX",
-    "AI-Powered",
-    "Calendar",
-    "Personalized",
-    "Schedules",
-    "Daily",
-    "Tasks",
+  keywords: [
     "Monthly",
-    "Goals",
-    "Customizable",
-    "Categories",
-    "Planning",
-    "Assistant",
+    "Calendar",
+    "Events",
     "Organized",
-    "Innovative",
-    "Access"
-],
+    "Categories",
+    "Tasks",
+    "Clock",
+    "Alarm",
+    "Google Calendar",
+    "Integration",
+    "Notifications",
+    "AI-Powered",
+    "Smart Plans",
+    "User Input",
+    "Workout Plans",
+    "Dietary Regimes",
+    "Profile",
+    "Settings",
+    "Planning",
+    "Management",
+  ],
   authors: [{ name: "S2DIO", url: "https://s2dio.ir" }],
   openGraph: {
     title: config.seo.defaultTitle,
@@ -66,7 +70,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className="scroll-smooth"
     >
-      <body className={cn("min-h-screen bg-background Inter antialiased ltr")}>
+      <body className={cn("min-h-screen bg-background Inter antialiased ltr bg-[#f4e5c6]")}>
         <Providers>{children}</Providers>
       </body>
     </html>
