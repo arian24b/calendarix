@@ -70,7 +70,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className="scroll-smooth"
     >
-      <body className={cn("min-h-screen bg-background Inter antialiased ltr bg-[#f4e5c6]")}>
+      <body className={cn("min-h-screen bg-background Inter antialiased ltr")}>
         <Providers>{children}</Providers>
       </body>
     </html>

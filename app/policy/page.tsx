@@ -187,7 +187,7 @@ export default function PolicyPage() {
         <h2 className="mt-8 text-xl font-bold text-[#414BA4]">12. Contact Us</h2>
         <p className="mt-2 text-[#48546d]">
           If you have any questions about this Privacy Policy or how we handle your information, please contact us via the following email address:
-          <a href="mailto:support@calendarix.com" className="text-[#414BA4] ml-1">support@calendarix.com</a>
+          <a href="mailto:contact@calendarix.pro" className="text-[#414BA4] ml-1">contact@calendarix.pro</a>
         </p>
 
         <p className="mt-8 text-sm text-gray-500 border-t pt-4 border-[#ADB1D5]/30">
