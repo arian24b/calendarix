@@ -9,7 +9,7 @@ const securityHeaders = {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;" +
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://api.calendarix.pro;" +
     "font-src 'self' data: https://fonts.gstatic.com;" +
-    "img-src 'self' data: blob: https://*.googleusercontent.com https://api.calendarix.pro;" +
+    "img-src 'self' data: blob: https://*.googleusercontent.com https://api.calendarix.pro https://*.producthunt.com;" +
     "worker-src 'self' blob: https://api.calendarix.pro;" +
     "connect-src 'self' http://127.0.0.1:3000 ws://127.0.0.1:8090 https://api.calendarix.pro http://api.calendarix.pro http://localhost:3000;",
   "X-Content-Type-Options": "nosniff",
