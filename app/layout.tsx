@@ -6,6 +6,8 @@ import "@/styles/globals.css";
 import config from "@/lib/config";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(config.site.url),
+  applicationName: config.site.name,
   title: config.site.name,
   description: config.site.description,
   keywords: [
